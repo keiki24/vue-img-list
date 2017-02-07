@@ -1,6 +1,12 @@
 Vue.component('button-img', {
   props: ['img'],
-  template: '<button type="button">{{ img.name }}</button>'
+  template: '<button type="button" @click="removeItem">{{ img.name }}</button>',
+  methods: {
+    removeItem: function () {
+      console.log('child method called.')
+      this.$emit('call', this)
+    }
+  }
 })
 
 var app = new Vue({
@@ -10,5 +16,10 @@ var app = new Vue({
       { name: 'a' },
       { name: 'b' }
     ]
+  },
+  methods: {
+    remove: function () {
+      console.log('parent method called.')
+    }
   }
 })
