@@ -4,7 +4,10 @@
   </head>
   <body>
     <div id="app">
-      <button-img v-for="(image, i) in imgs" :img="image" v-on:call="remove(image)"></button-img>
+      <button-img v-for="(image, i) in imgs" :img="image" v-on:call="change(image)"></button-img>
+      <ol>
+        <img-file v-for="file in files" :file="file"></img-file>
+      </ol>
     </div>
   </body>
   <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>

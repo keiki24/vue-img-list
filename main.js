@@ -18,15 +18,24 @@ var app = new Vue({
   el: '#app',
   data: {
     imgs: [
-      { name: 'a' },
-      { name: 'b' }
+      { name: 'a', filename: 'fileA' },
+      { name: 'b', filename: 'fileB' }
+    ],
+    files: [
     ]
   },
   methods: {
+    change: function (img) {
+      this.remove(img)
+      this.add(img)
+    },
     remove: function (img) {
       console.log('parent method called.')
       i = this.imgs.indexOf(img)
       this.imgs.splice(i, 1)
+    },
+    add: function (img) {
+      this.files.push(img)
     }
-    }
+  }
 })
