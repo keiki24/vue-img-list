@@ -9,6 +9,11 @@ Vue.component('button-img', {
   }
 })
 
+Vue.component('img-file', {
+  props: ['file'],
+  template: '<li>{{ file.filename }}</li>'
+})
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -18,9 +23,10 @@ var app = new Vue({
     ]
   },
   methods: {
-    remove: function (i) {
+    remove: function (img) {
       console.log('parent method called.')
+      i = this.imgs.indexOf(img)
       this.imgs.splice(i, 1)
     }
-  }
+    }
 })
