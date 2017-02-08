@@ -18,8 +18,9 @@ var app = new Vue({
     ]
   },
   methods: {
-    remove: function () {
+    remove: function (i) {
       console.log('parent method called.')
+      this.imgs.splice(i, 1)
     }
   }
 })
