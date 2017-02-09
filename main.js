@@ -11,15 +11,15 @@ Vue.component('button-img', {
 
 Vue.component('img-file', {
   props: ['file'],
-  template: '<li>{{ file.filename }}</li>'
+  template: '<img v-bind:src="file.filename"></img>'
 })
 
 var app = new Vue({
   el: '#app',
   data: {
     imgs: [
-      { name: 'a', filename: 'fileA' },
-      { name: 'b', filename: 'fileB' }
+      { name: 'a', filename: './img/sample1.jpg' },
+      { name: 'b', filename: './img/sample2.jpg' }
     ],
     files: [
     ]
