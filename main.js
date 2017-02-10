@@ -11,7 +11,12 @@ Vue.component('button-img', {
 
 Vue.component('img-file', {
   props: ['file'],
-  template: '<img v-bind:src="file.filename"></img>'
+  template: '<span><img v-bind:src="file.filename"></img><button type="button" @click="remove">remove</button></span>',
+  methods: {
+    remove: function () {
+      this.$emit('changeview', this)
+    }
+  }
 })
 
 var app = new Vue({
@@ -36,6 +41,17 @@ var app = new Vue({
     },
     add: function (img) {
       this.files.push(img)
+    },
+    changeView: function (img) {
+      this.removeImage(img)
+      this.addName(img)
+    },
+    removeImage: function (img) {
+      i = this.files.indexOf(img)
+      this.files.splice(i, 1)
+    },
+    addName: function (img) {
+      this.imgs.push(img)
     }
   }
 })
