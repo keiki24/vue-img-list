@@ -11,7 +11,7 @@ Vue.component('button-img', {
 
 Vue.component('img-file', {
   props: ['file'],
-  template: '<span><img v-bind:src="file.filename"></img><button type="button" @click="remove">remove</button></span>',
+  template: '<span class="box"><p><img v-bind:src="file.filename"></img></p><button type="button" @click="remove">remove</button></span>',
   methods: {
     remove: function () {
       this.$emit('changeview', this)
