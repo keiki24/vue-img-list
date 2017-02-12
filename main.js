@@ -24,7 +24,8 @@ var app = new Vue({
   data: {
     imgs: [
       { name: 'a', filename: './img/sample1.jpg' },
-      { name: 'b', filename: './img/sample2.jpg' }
+      { name: 'b', filename: './img/sample2.jpg' },
+      { name: 'c', filename: './img/sample3.jpg' }
     ],
     files: [
     ]
@@ -52,6 +53,14 @@ var app = new Vue({
     },
     addName: function (img) {
       this.imgs.push(img)
+    }
+  },
+  computed: {
+    fileSorted: function () {
+      return _.orderBy(this.files, ['name'], ['asc'])
+    },
+    imgSorted: function () {
+      return _.orderBy(this.imgs, ['name'], ['asc'])
     }
   }
 })
