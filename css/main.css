@@ -1,3 +1,15 @@
 .box {
   display: inline-block;
 }
+
+nav {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+
+.images {
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+}

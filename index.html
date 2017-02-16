@@ -5,10 +5,14 @@
   </head>
   <body>
     <div id="app">
-      <button-img v-for="image in imgSorted" :key="image.name" :img="image" @call="change(image)"></button-img>
-      <ol>
-        <img-file v-for="file in fileSorted" :key="file.name" :file="file" @changeview="changeView(file)"></img-file>
-      </ol>
+      <nav>
+        <button-img v-for="image in imgSorted" :img="image" @call="change(image)"></button-img>
+      </nav>
+      <div class="images">
+        <ol>
+          <img-file v-for="file in fileSorted" :key="file.name" :file="file" @changeview="changeView(file)"></img-file>
+        </ol>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
