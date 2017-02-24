@@ -25,15 +25,22 @@ var app = new Vue({
     imgs: [
       { name: 'a', filename: './img/sample1.jpg' },
       { name: 'b', filename: './img/sample2.jpg' },
-      { name: 'c', filename: './img/sample3.jpg' }
+      { name: 'c', filename: './img/sample3.jpg' },
+      { name: 'd', filename: './img/sample4.jpg' }
     ],
     files: [
-    ]
+    ],
+    show: false
   },
   methods: {
     change: function (img) {
-      this.remove(img)
-      this.add(img)
+      if (!this.isOverMaxDisp()) {
+        this.remove(img)
+        this.add(img)
+        this.show = false
+      } else {
+        this.show = true
+      }
     },
     remove: function (img) {
       console.log('parent method called.')
@@ -46,6 +53,11 @@ var app = new Vue({
     changeView: function (img) {
       this.removeImage(img)
       this.addName(img)
+      if (!this.isOverMaxDisp()) {
+        this.show = false
+      } else {
+        this.show = true
+      }
     },
     removeImage: function (img) {
       i = this.files.indexOf(img)
@@ -53,6 +65,13 @@ var app = new Vue({
     },
     addName: function (img) {
       this.imgs.push(img)
+    },
+    isOverMaxDisp: function () {
+      if (this.files.length >= 2) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   computed: {

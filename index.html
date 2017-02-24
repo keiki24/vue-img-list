@@ -9,6 +9,7 @@
         <button-img v-for="image in imgSorted" :img="image" @call="change(image)"></button-img>
       </nav>
       <div class="images">
+        <div><button v-if="show" type="button" name="button">最大表示数を超えています</button></div>
         <ol>
           <img-file v-for="file in fileSorted" :key="file.name" :file="file" @changeview="changeView(file)"></img-file>
         </ol>
